@@ -1,5 +1,11 @@
-def stringFilter(letter, *strings):
-    return [string for string in strings if string.lower().startswith(letter.lower)]
+from typing import Iterable, TypeVar
 
-stringList = stringFilter("m","Bosch", "Mexico", "Mango", "Mark", "Blr", "Clean code")
-print(stringList)
+T = TypeVar("T", str, Iterable)
+
+def stringFilter(letter: str, items: Iterable[T]) -> list:
+    return [item for item in items if isinstance(item, str) and item.lower().startswith(letter.lower())]
+
+# Example usage
+stringList = ["Bosch", "Mexico", "Mango", "Mark", "Blr", "Clean code"]
+result = stringFilter('M', stringList)
+print(result)
