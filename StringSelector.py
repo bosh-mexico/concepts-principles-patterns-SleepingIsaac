@@ -1,5 +1,5 @@
-def stringFilter(*strings):
-    return [string for string in strings if string.lower().startswith('m')]
+def stringFilter(letter, *strings):
+    return [string for string in strings if string.lower().startswith(letter.lower)]
 
-stringList = stringFilter("Bosch", "Mexico", "Mango", "Mark", "Blr", "Clean code")
+stringList = stringFilter("m","Bosch", "Mexico", "Mango", "Mark", "Blr", "Clean code")
 print(stringList)
